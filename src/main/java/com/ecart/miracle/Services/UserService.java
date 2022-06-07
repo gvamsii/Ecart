@@ -33,6 +33,10 @@ public class UserService {
 	{	
 		return userRepo.getByMobile(mobile);
 	}
+	public List<User> login1(String email)
+	{	
+		return userRepo.getByEmail(email);
+	}
  
 
 } 

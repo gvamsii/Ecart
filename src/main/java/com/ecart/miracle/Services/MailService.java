@@ -54,7 +54,7 @@ public class MailService {
 			Multipart multipart = new MimeMultipart();
 			multipart.addBodyPart(messageBody);
 			MimeBodyPart attachedpart = new MimeBodyPart();
-			attachedpart.attachFile("C:\\Users\\vguntamukkala\\Desktop\\logo.jpg");
+			attachedpart.attachFile("C:\\Users\\rmaneddi\\Desktop\\logo.jpg");
 			multipart.addBodyPart(attachedpart);
 			msg.setContent(multipart);
 			Transport.send(msg);

@@ -15,6 +15,7 @@ import javax.crypto.NoSuchPaddingException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.ObjectToStringHttpMessageConverter;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -126,12 +127,21 @@ public class UserController {
 	@PostMapping("/login")
 	public User login(@RequestBody User user) {
 		
-		List<User> user1 = userService.login(user.getMobile());
-		User str = user1.get(0);
+		List<User> user1;
+		if(user.getMobile()!=null)
+		{
+		user1=userService.login(user.getMobile());
+		}else {
+			user1=userService.login1(user.getEmail());
+		}
+		User str=null;
+		
 		if (user1.isEmpty()) {
-		return null;
+		return user;
 		} else {
+			 str = user1.get(0);
 		if (str.getPassword().equals(newEncriptionTechnique.encrpt(user.getPassword()))) {
+			System.out.println(str.getPassword());
 		return str;
 		} else {
 		return null;
