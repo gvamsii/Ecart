@@ -36,7 +36,7 @@ public class WishListService {
 			
 			String strArray[] = userData.getWishlist().split(",");
 			for (int i = 0; i < strArray.length; i++) {
-				if (strArray[i].equals(productId)) {
+				if (strArray[i].equals(productId)) { 
 					temp = false;
 					break;
 				}

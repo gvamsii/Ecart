@@ -22,7 +22,7 @@ public class WishListController {
 	
 	//This method is to put the products into wish list based on id
 	@CrossOrigin
-	@GetMapping("/addToWishList/{mobile}/{id}")
+	@PostMapping("/addToWishList/{mobile}/{id}")
 	public String wishList(@PathVariable long mobile,@PathVariable long id ) {
 		return wishListService.addToWishList(mobile,id);
 	}
